@@ -11,14 +11,19 @@ spec:
   http:
   - match:
     - uri:
-        exact: "/home"
-    redirect:
-      uri: "/"
-  - match:
-    - uri:
-        prefix: "/"
+        exact: "/book"    # Solo coincide exactamente con /book
     route:
     - destination:
         host: guestbook-ui
         port:
           number: 80
+  - route:               # Ruta por defecto para cualquier otra URL
+    - destination:
+        host: guestbook-ui
+        port:
+          number: 80
+    fault:
+      abort:
+        percentage:
+          value: 100
+        httpStatus: 404  # Devuelve 404 para todas las demás rutas
