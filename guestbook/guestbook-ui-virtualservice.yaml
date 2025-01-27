@@ -12,6 +12,8 @@ spec:
   - match:
     - uri:
         exact: "/book"    # Solo coincide exactamente con /book
+    rewrite:
+      uri: "/"
     route:
     - destination:
         host: guestbook-ui
