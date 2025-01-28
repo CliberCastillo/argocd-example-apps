@@ -5,7 +5,7 @@ metadata:
   namespace: book
 spec:
   selector:
-    istio: ingressgateway
+    istio: ingressgateway #1
   servers:
   - port:
       number: 80
