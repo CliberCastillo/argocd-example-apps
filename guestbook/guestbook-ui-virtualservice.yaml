@@ -11,15 +11,23 @@ spec:
   http:
   - match:
     - uri:
-        exact: "/book"    # Solo coincide exactamente con /book
+        exact: "/book"   
     rewrite:
       uri: "/"
     route:
     - destination:
         host: guestbook-ui
         port:
-          number: 80
-  - route:               # Ruta por defecto para cualquier otra URL
+          number: 80  
+  - match:
+    - uri:
+        exact: "/productpage"   
+    route:
+    - destination:
+        host: productpage.bookinfo.svc.cluster.local
+        port:
+          number: 9080  
+  - route:              
     - destination:
         host: guestbook-ui
         port:
