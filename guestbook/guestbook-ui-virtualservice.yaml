@@ -18,7 +18,17 @@ spec:
     - destination:
         host: guestbook-ui
         port:
-          number: 80  
+          number: 80
+  - match:
+    - uri:
+        exact: "/hello"
+    rewrite:
+      uri: "/"
+    route:
+    - destination:
+        host: hello-svc-v1.hello.svc.cluster.local
+        port:
+          number: 80
   - match:
     - uri:
         exact: /productpage
@@ -35,8 +45,10 @@ spec:
         host: productpage.bookinfo.svc.cluster.local
         port:
           number: 9080
+
   - route:              
     - destination:
+        host: guestbook-ui
         host: guestbook-ui
         port:
           number: 80
