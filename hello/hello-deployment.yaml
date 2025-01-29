@@ -6,7 +6,7 @@ metadata:
     app: hello-app-v1
   namespace: hello  # Especifica el namespace
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: hello-app-v1
