@@ -6,7 +6,7 @@ metadata:
     app: hello-app-v1
   namespace: hello  # Especifica el namespace
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: hello-app-v1
@@ -39,3 +39,4 @@ spec:
             port: 8080
           initialDelaySeconds: 15
           periodSeconds: 20
+
